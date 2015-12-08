@@ -1,0 +1,2 @@
+# AnimateHorizontalProgressBar
+Android Animate Horizontal ProgressBar
