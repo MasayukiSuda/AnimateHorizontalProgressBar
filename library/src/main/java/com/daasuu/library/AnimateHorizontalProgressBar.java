@@ -122,7 +122,7 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
     /**
      * Animation Progress
      *
-     * @param progress
+     * @param progress animationEnd progress point
      */
     public void setProgressWithAnim(int progress) {
         if (isAnimating) {
@@ -169,7 +169,7 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
     /**
      * Animation Progress
      *
-     * @param max
+     * @param max animationEnd max point
      */
     public void setMaxWithAnim(int max) {
         if (isAnimating) {
