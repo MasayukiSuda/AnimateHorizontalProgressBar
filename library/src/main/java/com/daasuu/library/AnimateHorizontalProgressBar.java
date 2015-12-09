@@ -22,7 +22,8 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
     private static final int DEFAULT_PROGRESS_COLOR = Color.parseColor("#FF0000");
     private static final int DEFAULT_PROGRESS_BACKGROUND_COLOR = Color.parseColor("#FFFFFF");
 
-    private ValueAnimator mAnimator;
+    private ValueAnimator mProgressAnimator;
+    private ValueAnimator mMaxAnimator;
     private boolean isAnimating = false;
 
     private AnimateProgressListener mAnimateProgressListener;
@@ -63,14 +64,14 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
     }
 
     private void setUpAnimator() {
-        mAnimator = new ValueAnimator();
-        mAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+        mProgressAnimator = new ValueAnimator();
+        mProgressAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
             public void onAnimationUpdate(ValueAnimator animation) {
                 AnimateHorizontalProgressBar.super.setProgress((Integer) animation.getAnimatedValue());
             }
         });
-        mAnimator.addListener(new SimpleAnimatorListener() {
+        mProgressAnimator.addListener(new SimpleAnimatorListener() {
             @Override
             public void onAnimationStart(Animator animation) {
                 isAnimating = true;
@@ -87,19 +88,52 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
                 }
             }
         });
-        mAnimator.setDuration(DEFAULT_DURATION);
+        mProgressAnimator.setDuration(DEFAULT_DURATION);
+
+
+        mMaxAnimator = new ValueAnimator();
+        mMaxAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                AnimateHorizontalProgressBar.super.setMax((Integer) animation.getAnimatedValue());
+            }
+        });
+        mMaxAnimator.addListener(new SimpleAnimatorListener() {
+            @Override
+            public void onAnimationStart(Animator animation) {
+                isAnimating = true;
+                if (mAnimateProgressListener != null) {
+                    mAnimateProgressListener.onAnimationStart(getProgress(), getMax());
+                }
+            }
+
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                isAnimating = false;
+                if (mAnimateProgressListener != null) {
+                    mAnimateProgressListener.onAnimationEnd(getProgress(), getMax());
+                }
+            }
+        });
+        mMaxAnimator.setDuration(DEFAULT_DURATION);
+
     }
 
+    /**
+     * Animation Progress
+     *
+     * @param progress
+     */
     public void setProgressWithAnim(int progress) {
         if (isAnimating) {
             Log.w(TAG, "now is animating. cant override animator");
             return;
         }
-        if (mAnimator == null) {
+        if (mProgressAnimator == null) {
             setUpAnimator();
         }
-        mAnimator.setIntValues(getProgress(), progress);
-        mAnimator.start();
+        mProgressAnimator.setIntValues(getProgress(), progress);
+        mProgressAnimator.start();
     }
 
     @Override
@@ -123,21 +157,50 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
     @Override
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        if (mAnimator != null) {
-            mAnimator.cancel();
+        if (mProgressAnimator != null) {
+            mProgressAnimator.cancel();
+        }
+        if (mMaxAnimator != null) {
+            mMaxAnimator.cancel();
+        }
+    }
+
+
+    /**
+     * Animation Progress
+     *
+     * @param max
+     */
+    public void setMaxWithAnim(int max) {
+        if (isAnimating) {
+            Log.w(TAG, "now is animating. cant override animator");
+            return;
+        }
+        if (mMaxAnimator == null) {
+            setUpAnimator();
+        }
+        mMaxAnimator.setIntValues(getMax(), max);
+        mMaxAnimator.start();
+    }
+
+
+    @Override
+    public synchronized void setMax(int max) {
+        if (!isAnimating) {
+            super.setMax(max);
         }
     }
 
     public long getAnimDuration() {
-        return mAnimator.getDuration();
+        return mProgressAnimator.getDuration();
     }
 
     public void setAnimDuration(long duration) {
-        mAnimator.setDuration(duration);
+        mProgressAnimator.setDuration(duration);
     }
 
     public void setStartDelay(long delay) {
-        mAnimator.setStartDelay(delay);
+        mProgressAnimator.setStartDelay(delay);
     }
 
     public void setAnimateProgressListener(AnimateProgressListener animateProgressListener) {

@@ -7,13 +7,15 @@ import com.daasuu.library.AnimateHorizontalProgressBar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 public class MainActivity extends AppCompatActivity {
 
 
     @Bind(R.id.animate_progress_bar)
-    AnimateHorizontalProgressBar mAnimateHorizontalProgressBar;
-
+    AnimateHorizontalProgressBar mProgressBarAnimProgress;
+    @Bind(R.id.animate_max_progress_bar)
+    AnimateHorizontalProgressBar mProgressBarAnimMax;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,8 +24,20 @@ public class MainActivity extends AppCompatActivity {
         ButterKnife.bind(this);
 
 
-        mAnimateHorizontalProgressBar.setMax(1000);
-        mAnimateHorizontalProgressBar.setProgressWithAnim(800);
+        mProgressBarAnimProgress.setMax(1000);
+        mProgressBarAnimProgress.setProgress(200);
+        mProgressBarAnimMax.setMax(1000);
+        mProgressBarAnimMax.setProgress(800);
+    }
+
+    @OnClick(R.id.btn_progress_anim)
+    public void onClickProgress() {
+        mProgressBarAnimProgress.setProgressWithAnim(800);
+    }
+
+    @OnClick(R.id.btn_max_anim)
+    public void onClickMax() {
+        mProgressBarAnimMax.setMaxWithAnim(2000);
     }
 
 }
