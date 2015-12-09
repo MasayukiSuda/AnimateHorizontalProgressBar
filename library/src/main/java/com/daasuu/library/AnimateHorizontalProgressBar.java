@@ -44,8 +44,8 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
         // progress color set
         TypedArray ta = getContext().obtainStyledAttributes(attrs, R.styleable.AnimateHorizontalProgressBar);
 
-        int progressColor = ta.getColor(R.styleable.AnimateHorizontalProgressBar_progressColor, DEFAULT_PROGRESS_COLOR);
-        int backgroundColor = ta.getColor(R.styleable.AnimateHorizontalProgressBar_progressBackgroundColor, DEFAULT_PROGRESS_BACKGROUND_COLOR);
+        int progressColor = ta.getColor(R.styleable.AnimateHorizontalProgressBar_animateHorizontalProgressColor, DEFAULT_PROGRESS_COLOR);
+        int backgroundColor = ta.getColor(R.styleable.AnimateHorizontalProgressBar_animateHorizontalProgressBackgroundColor, DEFAULT_PROGRESS_BACKGROUND_COLOR);
 
         ClipDrawable progressClipDrawable = new ClipDrawable(
                 new ColorDrawable(progressColor),
