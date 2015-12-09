@@ -9,7 +9,7 @@ android {
         minSdkVersion 16
         targetSdkVersion 23
         versionCode 1
-        versionName "0.1.0"
+        versionName "0.1.1"
     }
     buildTypes {
         release {
@@ -32,7 +32,7 @@ publish {
     userOrg = 'masayukisuda'
     groupId = 'com.daasuu'
     artifactId = 'animateHorizontalProgressBar'
-    publishVersion = "0.1.0"
+    publishVersion = "0.1.1"
     desc = 'Simple Animate Horizontal ProgressBar of Android.'
     website = 'https://github.com/MasayukiSuda/AnimateHorizontalProgressBar'
 }
