@@ -197,10 +197,12 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
 
     public void setAnimDuration(long duration) {
         mProgressAnimator.setDuration(duration);
+        mMaxAnimator.setDuration(duration);
     }
 
     public void setStartDelay(long delay) {
         mProgressAnimator.setStartDelay(delay);
+        mMaxAnimator.setStartDelay(delay);
     }
 
     public void setAnimateProgressListener(AnimateProgressListener animateProgressListener) {
