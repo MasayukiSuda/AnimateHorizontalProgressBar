@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="AnimateHorizontalProgressBar">
-        <attr name="animateHorizontalProgressColor" format="color|reference" />
-        <attr name="animateHorizontalProgressBackgroundColor" format="color|reference" />
+        <attr name="ahp_progressColor" format="color|reference" />
+        <attr name="ahp_backgroundColor" format="color|reference" />
     </declare-styleable>
 </resources>

@@ -23,8 +23,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/activity_vertical_margin"
-        app:animateHorizontalProgressBackgroundColor="@color/colorPrimaryDark"
-        app:animateHorizontalProgressColor="@color/colorAccent" />
+        app:ahp_backgroundColor="@color/colorPrimaryDark"
+        app:ahp_progressColor="@color/colorAccent" />
 
     <Button
         android:id="@+id/btn_max_anim"
@@ -37,7 +37,7 @@
         android:id="@+id/animate_max_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:animateHorizontalProgressBackgroundColor="@color/colorPrimaryDark"
-        app:animateHorizontalProgressColor="@color/colorAccent" />
+        app:ahp_backgroundColor="@color/colorPrimaryDark"
+        app:ahp_progressColor="@color/colorAccent" />
 
 </LinearLayout>
