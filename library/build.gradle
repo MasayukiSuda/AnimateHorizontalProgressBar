@@ -2,14 +2,14 @@ apply plugin: 'com.android.library'
 apply plugin: 'com.novoda.bintray-release'
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion COMPILE_SDK_VERSION as int
     buildToolsVersion "23.0.2"
 
     defaultConfig {
         minSdkVersion 16
-        targetSdkVersion 23
-        versionCode 1
-        versionName "0.1.2"
+        targetSdkVersion COMPILE_SDK_VERSION as int
+        versionCode VERSION_CODE as int
+        versionName VERSION_NAME
     }
     buildTypes {
         release {
@@ -29,10 +29,10 @@ dependencies {
 }
 
 publish {
-    userOrg = 'masayukisuda'
-    groupId = 'com.daasuu'
-    artifactId = 'animateHorizontalProgressBar'
-    publishVersion = "0.1.2"
-    desc = 'Simple Animate Horizontal ProgressBar of Android.'
-    website = 'https://github.com/MasayukiSuda/AnimateHorizontalProgressBar'
+    userOrg = USER_ID
+    groupId = GROUP
+    artifactId = ARTIFACT_NAME
+    publishVersion = VERSION_NAME
+    desc = ARTIFACT_DESCRIPTION
+    website = SITE_URL
 }
