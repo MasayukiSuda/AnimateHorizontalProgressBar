@@ -18,7 +18,7 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
 
     private static final String TAG = AnimateHorizontalProgressBar.class.getName();
 
-    private static final long DEFAULT_DURATION = 2000;
+    private static final long DEFAULT_DURATION = 1000;
     private static final int DEFAULT_PROGRESS_COLOR = Color.parseColor("#FF0000");
     private static final int DEFAULT_PROGRESS_BACKGROUND_COLOR = Color.parseColor("#FFFFFF");
 
