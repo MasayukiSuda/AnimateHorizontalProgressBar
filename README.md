@@ -18,6 +18,27 @@ Include the AnimateHorizontalProgressBar widget in your layout.
         app:ahp_progressColor="@color/colorAccent" />
 
 ```
+In your onCreate method (or onCreateView for a fragment), bind the widget and set default value.
+```JAVA
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        
+        AnimateHorizontalProgressBar progressBar = (AnimateHorizontalProgressBar) findViewById(R.id.animate_progress_bar);
+        progressBar.setMax(1000);
+        progressBar.setProgress(400);
+    }
+
+```
+Animate ProgressBar with setProgress
+```JAVA
+    progressBar.setProgressWithAnim(800);
+```
+Animate ProgressBar with setMax
+```JAVA
+    progressBar.setMaxWithAnim(2000);
+```
 
 # Gradle
 
