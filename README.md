@@ -1,5 +1,6 @@
 # AnimateHorizontalProgressBar
 [![License](https://img.shields.io/badge/license-Apache%202-blue.svg)](https://www.apache.org/licenses/LICENSE-2.0)
+[![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
 
 Android Animate Horizontal ProgressBar
 
