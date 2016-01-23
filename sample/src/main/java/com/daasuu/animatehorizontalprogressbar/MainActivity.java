@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.TextView;
 
-import com.daasuu.library.AnimateHorizontalProgressBar;
+import com.daasuu.ahp.AnimateHorizontalProgressBar;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

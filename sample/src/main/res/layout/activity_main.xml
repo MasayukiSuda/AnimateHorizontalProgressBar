@@ -55,7 +55,7 @@
 
     </LinearLayout>
 
-    <com.daasuu.library.AnimateHorizontalProgressBar
+    <com.daasuu.ahp.AnimateHorizontalProgressBar
         android:id="@+id/animate_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
