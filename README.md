@@ -9,7 +9,7 @@ Include the AnimateHorizontalProgressBar widget in your layout.
 
 ```xml
 
-    <com.daasuu.library.AnimateHorizontalProgressBar
+    <com.daasuu.ahp.AnimateHorizontalProgressBar
         android:id="@+id/animate_progress_bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -45,7 +45,7 @@ Add the dependency to your build.gradle.
 
 ```
 dependencies {
-    compile 'com.daasuu:animateHorizontalProgressBar:0.1.3'
+    compile 'com.daasuu:animateHorizontalProgressBar:0.2.0'
 }
 ```
 
