@@ -1,6 +1,7 @@
 package com.daasuu.ahp;
 
 import android.animation.Animator;
+import android.animation.TimeInterpolator;
 import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -9,6 +10,7 @@ import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
 import android.graphics.drawable.LayerDrawable;
+import android.support.annotation.NonNull;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.view.Gravity;
@@ -203,6 +205,11 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
     public void setStartDelay(long delay) {
         mProgressAnimator.setStartDelay(delay);
         mMaxAnimator.setStartDelay(delay);
+    }
+
+    public void setAnimInterpolator(@NonNull TimeInterpolator timeInterpolator) {
+        mProgressAnimator.setInterpolator(timeInterpolator);
+        mMaxAnimator.setInterpolator(timeInterpolator);
     }
 
     public void setAnimateProgressListener(AnimateProgressListener animateProgressListener) {
