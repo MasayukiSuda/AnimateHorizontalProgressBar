@@ -1,78 +1,88 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.daasuu.animatehorizontalprogressbar.MainActivity">
 
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        android:orientation="vertical">
-
-        <Button
-            android:id="@+id/btn_progress_anim_0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="setProgressWithAnim to 800"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_progress_anim_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="setProgressWithAnim to 400"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_max_anim_0"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="setMaxWithAnim to 2000"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_max_anim_1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="setMaxWithAnim to 3000"
-            android:textAllCaps="false" />
-
-        <Button
-            android:id="@+id/btn_max_anim_2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="setMaxWithAnim to 1000"
-            android:textAllCaps="false" />
-
-    </LinearLayout>
-
-    <com.daasuu.ahp.AnimateHorizontalProgressBar
-        android:id="@+id/animate_progress_bar"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_vertical_margin"
-        app:ahp_backgroundColor="@color/colorPrimaryDark"
-        app:ahp_progressColor="@color/colorAccent" />
+        android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/txt_progress"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="progress 400" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/txt_max"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="max 1000" />
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                android:orientation="vertical">
 
-</LinearLayout>
+                <Button
+                    android:id="@+id/btn_progress_anim_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="setProgressWithAnim to 800"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_progress_anim_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="setProgressWithAnim to 400"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_max_anim_0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="setMaxWithAnim to 2000"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_max_anim_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="setMaxWithAnim to 3000"
+                    android:textAllCaps="false" />
+
+                <Button
+                    android:id="@+id/btn_max_anim_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="setMaxWithAnim to 1000"
+                    android:textAllCaps="false" />
+
+            </LinearLayout>
+
+            <com.daasuu.ahp.AnimateHorizontalProgressBar
+                android:id="@+id/animate_progress_bar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/activity_vertical_margin"
+                app:ahp_backgroundColor="@color/colorPrimaryDark"
+                app:ahp_progressColor="@color/colorAccent" />
+
+            <TextView
+                android:id="@+id/txt_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="progress 400" />
+
+            <TextView
+                android:id="@+id/txt_max"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="max 1000" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
