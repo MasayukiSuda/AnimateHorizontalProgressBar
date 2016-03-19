@@ -1,7 +1,12 @@
 # AnimateHorizontalProgressBar
 [![Platform](https://img.shields.io/badge/platform-android-green.svg)](http://developer.android.com/index.html)
+<img src="https://img.shields.io/badge/license-MIT-green.svg?style=flat">
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-AnimateHorizontalProgressBar-green.svg?style=true)](https://android-arsenal.com/details/1/3221)
 
 A tiny Android library makes very easier ProgressBar anitmation horizontal. 
+
+<img src="art/ahp.gif" width="80%">
+
 
 # Usage
 
@@ -45,7 +50,7 @@ Add the dependency to your build.gradle.
 
 ```
 dependencies {
-    compile 'com.daasuu:animateHorizontalProgressBar:0.2.0'
+    compile 'com.daasuu:animateHorizontalProgressBar:0.2.1'
 }
 ```
 
