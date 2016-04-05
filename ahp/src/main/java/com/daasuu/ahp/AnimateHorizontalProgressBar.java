@@ -223,16 +223,12 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
         void onAnimationEnd(int progress, int max);
     }
 
-    private class SimpleAnimatorListener implements Animator.AnimatorListener {
+    private abstract class SimpleAnimatorListener implements Animator.AnimatorListener {
         @Override
-        public void onAnimationStart(Animator animation) {
-
-        }
+        public abstract void onAnimationStart(Animator animation);
 
         @Override
-        public void onAnimationEnd(Animator animation) {
-
-        }
+        public abstract void onAnimationEnd(Animator animation);
 
         @Override
         public void onAnimationCancel(Animator animation) {
