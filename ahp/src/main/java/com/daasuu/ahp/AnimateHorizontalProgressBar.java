@@ -185,6 +185,22 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
         mMaxAnimator.start();
     }
 
+    /**
+     * cancelAnimation
+     */
+    public void cancelAnimation() {
+        if (!isAnimating) {
+            Log.w(TAG, "now is no animating.");
+            return;
+        }
+        if (mProgressAnimator != null) {
+            mProgressAnimator.cancel();
+        }
+        if (mMaxAnimator != null) {
+            mMaxAnimator.cancel();
+        }
+    }
+
 
     @Override
     public synchronized void setMax(int max) {
