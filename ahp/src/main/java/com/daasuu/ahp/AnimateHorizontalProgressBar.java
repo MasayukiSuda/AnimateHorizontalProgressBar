@@ -199,6 +199,7 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
         if (mMaxAnimator != null) {
             mMaxAnimator.cancel();
         }
+        isAnimating = false;
     }
 
 
