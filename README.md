@@ -50,7 +50,7 @@ Add the dependency to your build.gradle.
 
 ```
 dependencies {
-    compile 'com.daasuu:animateHorizontalProgressBar:0.2.2'
+    compile 'com.daasuu:animateHorizontalProgressBar:0.2.3'
 }
 ```
 
