@@ -9,6 +9,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
 import android.graphics.drawable.LayerDrawable;
 import android.support.annotation.NonNull;
 import android.util.AttributeSet;
@@ -21,6 +22,7 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
     private static final String TAG = AnimateHorizontalProgressBar.class.getName();
 
     private static final long DEFAULT_DURATION = 1000;
+    private static final int DEFAULT_CORNER_RADIUS = 10;
     private static final int DEFAULT_PROGRESS_COLOR = Color.parseColor("#FF0000");
     private static final int DEFAULT_PROGRESS_BACKGROUND_COLOR = Color.parseColor("#FFFFFF");
 
@@ -48,21 +50,42 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
 
         int progressColor = ta.getColor(R.styleable.AnimateHorizontalProgressBar_ahp_progressColor, DEFAULT_PROGRESS_COLOR);
         int backgroundColor = ta.getColor(R.styleable.AnimateHorizontalProgressBar_ahp_backgroundColor, DEFAULT_PROGRESS_BACKGROUND_COLOR);
+        boolean cornerEnable = ta.getBoolean(R.styleable.AnimateHorizontalProgressBar_aph_corner_enable, true);
+        int cornerRadius = ta.getDimensionPixelSize(R.styleable.AnimateHorizontalProgressBar_ahp_cornerRadius, DEFAULT_CORNER_RADIUS);
 
-        ClipDrawable progressClipDrawable = new ClipDrawable(
-                new ColorDrawable(progressColor),
-                Gravity.LEFT,
-                ClipDrawable.HORIZONTAL);
-
-        Drawable[] progressDrawables = {
-                new ColorDrawable(backgroundColor),
-                progressClipDrawable};
+        ClipDrawable progressClipDrawable;
+        Drawable[] progressDrawables;
+        if (cornerEnable) {
+            progressClipDrawable = new ClipDrawable(
+                    createGradientDrawable(progressColor, cornerRadius),
+                    Gravity.LEFT,
+                    ClipDrawable.HORIZONTAL);
+            progressDrawables = new Drawable[]{
+                    createGradientDrawable(backgroundColor, cornerRadius),
+                    progressClipDrawable};
+        } else {
+            progressClipDrawable = new ClipDrawable(
+                    new ColorDrawable(progressColor),
+                    Gravity.LEFT,
+                    ClipDrawable.HORIZONTAL);
+            progressDrawables = new Drawable[]{
+                    new ColorDrawable(backgroundColor),
+                    progressClipDrawable};
+        }
         LayerDrawable progressLayerDrawable = new LayerDrawable(progressDrawables);
         progressLayerDrawable.setId(0, android.R.id.background);
         progressLayerDrawable.setId(1, android.R.id.progress);
 
         super.setProgressDrawable(progressLayerDrawable);
         ta.recycle();
+    }
+
+    private GradientDrawable createGradientDrawable(int color, int radius) {
+        GradientDrawable gradientDrawable = new GradientDrawable();
+        gradientDrawable.setShape(GradientDrawable.RECTANGLE);
+        gradientDrawable.setColor(color);
+        gradientDrawable.setCornerRadius(radius);
+        return gradientDrawable;
     }
 
     private void setUpAnimator() {
