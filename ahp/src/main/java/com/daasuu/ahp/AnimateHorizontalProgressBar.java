@@ -22,7 +22,7 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
     private static final String TAG = AnimateHorizontalProgressBar.class.getName();
 
     private static final long DEFAULT_DURATION = 1000;
-    private static final int DEFAULT_CORNER_RADIUS = 10;
+    private static final int DEFAULT_CORNER_RADIUS = -1;
     private static final int DEFAULT_PROGRESS_COLOR = Color.parseColor("#FF0000");
     private static final int DEFAULT_PROGRESS_BACKGROUND_COLOR = Color.parseColor("#FFFFFF");
 
@@ -50,12 +50,11 @@ public class AnimateHorizontalProgressBar extends ProgressBar {
 
         int progressColor = ta.getColor(R.styleable.AnimateHorizontalProgressBar_ahp_progressColor, DEFAULT_PROGRESS_COLOR);
         int backgroundColor = ta.getColor(R.styleable.AnimateHorizontalProgressBar_ahp_backgroundColor, DEFAULT_PROGRESS_BACKGROUND_COLOR);
-        boolean cornerEnable = ta.getBoolean(R.styleable.AnimateHorizontalProgressBar_aph_corner_enable, true);
         int cornerRadius = ta.getDimensionPixelSize(R.styleable.AnimateHorizontalProgressBar_ahp_cornerRadius, DEFAULT_CORNER_RADIUS);
 
         ClipDrawable progressClipDrawable;
         Drawable[] progressDrawables;
-        if (cornerEnable) {
+        if (cornerRadius > 0) {
             progressClipDrawable = new ClipDrawable(
                     createGradientDrawable(progressColor, cornerRadius),
                     Gravity.LEFT,
