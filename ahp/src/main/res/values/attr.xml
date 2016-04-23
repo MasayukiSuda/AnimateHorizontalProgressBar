@@ -3,5 +3,7 @@
     <declare-styleable name="AnimateHorizontalProgressBar">
         <attr name="ahp_progressColor" format="color|reference" />
         <attr name="ahp_backgroundColor" format="color|reference" />
+        <attr name="ahp_cornerRadius" format="dimension" />
+        <attr name="aph_corner_enable" format="boolean"/>
     </declare-styleable>
 </resources>
