@@ -53,6 +53,8 @@ dependencies {
     compile 'com.daasuu:animateHorizontalProgressBar:0.2.4'
 }
 ```
+## Sample Dependencies
+* [ButterKnife](http://jakewharton.github.io/butterknife/)
 
 ## License
 
